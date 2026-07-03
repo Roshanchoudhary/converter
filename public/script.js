@@ -1,5 +1,5 @@
-// ⚠️ IMPORTANT: Is URL ko apne Worker URL se replace karein
-const API_URL = 'https://tirhuta-converter.workers.dev/convert';
+// ⚠️ IMPORTANT: Ye URL apne Worker ke hisaab se set karein
+const API_URL = 'https://converter.roshanchoudhary.workers.dev/convert';
 
 async function convert() {
     const input = document.getElementById('inputText');
@@ -49,7 +49,6 @@ function copyResult() {
     navigator.clipboard.writeText(output.textContent).then(() => {
         alert('✅ Copied!');
     }).catch(() => {
-        // Fallback
         const range = document.createRange();
         range.selectNode(output);
         window.getSelection().removeAllRanges();
@@ -70,12 +69,10 @@ function loadExample(type) {
     convert();
 }
 
-// Ctrl+Enter se convert
 document.getElementById('inputText').addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && e.ctrlKey) convert();
 });
 
-// Direction change par auto-convert
 document.getElementById('direction').addEventListener('change', () => {
     if (document.getElementById('inputText').value) convert();
 });
