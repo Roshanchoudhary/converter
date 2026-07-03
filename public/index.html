@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devanagari ↔ Tirhuta Converter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tirhuta&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📜 Devanagari ↔ Tirhuta</h1>
+        
+        <div class="box">
+            <textarea id="inputText" placeholder="यहाँ लिखें..."></textarea>
+
+            <div class="controls">
+                <select id="direction">
+                    <option value="dev2tir">Devanagari → Tirhuta</option>
+                    <option value="tir2dev">Tirhuta → Devanagari</option>
+                </select>
+                <button onclick="convert()">Convert</button>
+                <button onclick="clearAll()">Clear</button>
+                <button onclick="copyResult()">Copy</button>
+            </div>
+
+            <div id="outputText" class="output"></div>
+            <div id="stats" class="stats">Characters: 0 | Words: 0</div>
+        </div>
+
+        <div class="examples">
+            <button onclick="loadExample('sanskrit')">संस्कृत</button>
+            <button onclick="loadExample('maithili')">मैथिली</button>
+            <button onclick="loadExample('conjuncts')">Conjuncts</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
