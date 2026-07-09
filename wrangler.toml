@@ -1,9 +1,0 @@
-name = "devanagari-tirhuta-converter"
-main = "server.js"
-compatibility_date = "2024-01-01"
-
-[build]
-command = "npm install"
-
-[vars]
-NODE_VERSION = "18"
