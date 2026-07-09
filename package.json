@@ -2,21 +2,16 @@
   "name": "devanagari-tirhuta-converter",
   "version": "1.0.0",
   "description": "Convert between Devanagari and Tirhuta (Maithili) scripts",
-  "main": "src/converter.js",
   "type": "module",
   "scripts": {
     "dev": "node server.js",
-    "start": "node server.js",
-    "build": "echo 'No build step required'",
-    "deploy": "wrangler pages deploy public --project-name devanagari-tirhuta-converter"
+    "start": "node server.js"
   },
   "keywords": [
     "devanagari",
     "tirhuta",
     "maithili",
-    "script-converter",
-    "unicode",
-    "cloudflare-pages"
+    "script-converter"
   ],
   "author": "Your Name",
   "license": "MIT",
@@ -25,10 +20,6 @@
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "wrangler": "^3.0.0",
-    "nodemon": "^3.0.1"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "wrangler": "^3.0.0"
   }
 }
