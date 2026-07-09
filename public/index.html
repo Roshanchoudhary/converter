@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devanagari ⇄ Tirhuta Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔄 देवनागरी ⇄ 𑒞𑒱𑒩𑒯𑒳𑒞𑒰</h1>
+            <p class="subtitle">Devanagari to Tirhuta (Maithili) Script Converter</p>
+            <div class="badge">
+                <span>🌐 Free & Open Source</span>
+                <span>⚡ Cloudflare Powered</span>
+            </div>
+        </header>
+
+        <div class="main-box">
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <button id="clearBtn" class="btn btn-clear" title="Clear all text">
+                    <span>🗑️</span> Clear
+                </button>
+                <button id="swapBtn" class="btn btn-swap" title="Swap input and output">
+                    <span>🔄</span> Swap
+                </button>
+                <button id="copyBtn" class="btn btn-copy" title="Copy output text">
+                    <span>📋</span> Copy
+                </button>
+                <button id="pasteBtn" class="btn btn-paste" title="Paste from clipboard">
+                    <span>📥</span> Paste
+                </button>
+                <button id="downloadBtn" class="btn btn-download" title="Download output">
+                    <span>💾</span> Download
+                </button>
+            </div>
+
+            <!-- Text Areas -->
+            <div class="text-areas">
+                <div class="input-group">
+                    <label for="inputText">
+                        <span class="label-icon">📝</span> Input
+                        <span class="char-count" id="inputCount">0</span>
+                    </label>
+                    <textarea id="inputText" placeholder="Type or paste Devanagari/Tirhuta text here..."></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label for="outputText">
+                        <span class="label-icon">✅</span> Output
+                        <span class="char-count" id="outputCount">0</span>
+                    </label>
+                    <textarea id="outputText" placeholder="Converted text will appear here..." readonly></textarea>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="convertToTirhuta" class="btn btn-primary">
+                    <span>➡️</span> Devanagari → Tirhuta
+                </button>
+                <button id="convertToDevanagari" class="btn btn-secondary">
+                    <span>⬅️</span> Tirhuta → Devanagari
+                </button>
+                <button id="autoConvert" class="btn btn-auto">
+                    <span>🤖</span> Auto Detect
+                </button>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-icon">📊</span>
+                    <span id="charCount">Characters: 0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">📝</span>
+                    <span id="wordCount">Words: 0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">🔄</span>
+                    <span id="direction">Direction: Devanagari → Tirhuta</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">📏</span>
+                    <span id="lineCount">Lines: 0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Examples Section -->
+        <div class="examples-section">
+            <h3>📚 Example Sentences</h3>
+            <div class="example-grid">
+                <div class="example-card" data-text="नमस्ते">
+                    <span class="dev">नमस्ते</span>
+                    <span class="tir">𑒢𑒧𑒮𑓂𑒞𑒹</span>
+                    <span class="example-label">Greeting</span>
+                </div>
+                <div class="example-card" data-text="मैथिली">
+                    <span class="dev">मैथिली</span>
+                    <span class="tir">𑒧𑒻𑒟𑒱𑒪𑒲</span>
+                    <span class="example-label">Language</span>
+                </div>
+                <div class="example-card" data-text="भारत">
+                    <span class="dev">भारत</span>
+                    <span class="tir">𑒦𑒰𑒩𑒞</span>
+                    <span class="example-label">Country</span>
+                </div>
+                <div class="example-card" data-text="जननी जन्मभूमिश्च स्वर्गादपि गरीयसी">
+                    <span class="dev">जननी जन्मभूमिश्च स्वर्गादपि गरीयसी</span>
+                    <span class="tir">𑒖𑒢𑒢𑒲 𑒖𑒢𑓂𑒧𑒦𑒴𑒧𑒱𑒬𑓂𑒔 𑒮𑓂𑒫𑒩𑓂𑒑𑒰𑒠𑒣𑒱 𑒑𑒩𑒲𑒨𑒮𑒲</span>
+                    <span class="example-label">Proverb</span>
+                </div>
+                <div class="example-card" data-text="सत्यमेव जयते">
+                    <span class="dev">सत्यमेव जयते</span>
+                    <span class="tir">𑒮𑒞𑓂𑒨𑒧𑒺𑒫 𑒖𑒨𑒞𑒹</span>
+                    <span class="example-label">Motto</span>
+                </div>
+                <div class="example-card" data-text="ॐ">
+                    <span class="dev">ॐ</span>
+                    <span class="tir">𑒍𑓀𑒧𑓂</span>
+                    <span class="example-label">Symbol</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <div class="info-card">
+                <h4>🎯 About Tirhuta Script</h4>
+                <p>Tirhuta (also known as Mithilakshar) is the traditional script used for the Maithili language in Bihar and Nepal.</p>
+            </div>
+            <div class="info-card">
+                <h4>🔤 Supported Characters</h4>
+                <p>All vowels, consonants, matras, numbers, and special characters of Devanagari are supported for conversion.</p>
+            </div>
+            <div class="info-card">
+                <h4>🚀 Cloudflare Powered</h4>
+                <p>This converter runs on Cloudflare Pages with Edge Functions for fast, global availability.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made with ❤️ for Maithili Language Preservation • MIT License</p>
+            <p class="footer-links">
+                <a href="#" target="_blank">GitHub</a>
+                <span>•</span>
+                <a href="#" target="_blank">Report Issue</a>
+                <span>•</span>
+                <a href="#" target="_blank">Documentation</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
