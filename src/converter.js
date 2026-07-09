@@ -1,6 +1,6 @@
-const { devanagariToTirhuta, tirhutaToDevanagari, conjuncts } = require('./devanagari-to-tirhuta');
+import { devanagariToTirhuta, tirhutaToDevanagari, conjuncts } from './devanagari-to-tirhuta.js';
 
-class ScriptConverter {
+export class ScriptConverter {
   constructor() {
     this.devanagariMap = devanagariToTirhuta;
     this.tirhutaMap = tirhutaToDevanagari;
@@ -16,7 +16,6 @@ class ScriptConverter {
     const len = text.length;
 
     while (i < len) {
-      // Check for conjuncts first (2-3 characters)
       let matched = false;
       
       // Check for 3-character conjuncts
@@ -80,7 +79,6 @@ class ScriptConverter {
       
       // Check if it's a high surrogate (Tirhuta characters)
       if (charCode >= 0xD811 && charCode <= 0xD811 && i + 1 < len) {
-        // Combine surrogate pair
         const nextChar = text[i + 1];
         if (nextChar.charCodeAt(0) >= 0xDC80 && nextChar.charCodeAt(0) <= 0xDCDF) {
           char = text.substring(i, i + 2);
@@ -96,7 +94,6 @@ class ScriptConverter {
       if (mapped !== undefined) {
         result += mapped;
       } else {
-        // Keep unmapped characters as is
         result += char;
       }
     }
@@ -214,6 +211,5 @@ class ScriptConverter {
   }
 }
 
-// Export both class and instance
-module.exports = ScriptConverter;
-module.exports.default = ScriptConverter;
+// Default export
+export default ScriptConverter;
