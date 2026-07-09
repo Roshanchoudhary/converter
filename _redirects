@@ -1,8 +1,8 @@
 # API routes - handled by Pages Functions
 /api/*  /functions/api/:splat  200
 
-# 404 handling - redirect to index for SPA
-/*    /index.html   404
+# 404 handling - redirect to index
+/*    /index.html   200
 
 # Security headers
 /.well-known/*  /public/.well-known/:splat  200
