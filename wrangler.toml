@@ -1,0 +1,19 @@
+name = "devanagari-tirhuta-converter"
+main = "src/converter.js"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "npm install"
+
+[vars]
+NODE_VERSION = "18"
+
+[pages]
+build_command = "npm install"
+output_dir = "public"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[env.staging]
+vars = { ENVIRONMENT = "staging" }
