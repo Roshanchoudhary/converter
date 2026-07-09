@@ -12,7 +12,6 @@ export async function onRequest(context) {
         service: 'Devanagari-Tirhuta Converter',
         version: '1.0.0',
         timestamp: new Date().toISOString(),
-        uptime: process.uptime ? process.uptime() : 0,
         environment: 'Cloudflare Pages'
     }), {
         status: 200,
