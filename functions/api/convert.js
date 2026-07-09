@@ -1,6 +1,7 @@
-// @ts-check
+// Import the converter class
 import { ScriptConverter } from '../../src/converter.js';
 
+// Create converter instance
 const converter = new ScriptConverter();
 
 /**
@@ -9,7 +10,7 @@ const converter = new ScriptConverter();
 export async function onRequest(context) {
     const { request } = context;
     
-    // CORS headers for cross-origin requests
+    // CORS headers
     const headers = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
