@@ -1,5 +1,5 @@
 // Complete character mapping for Devanagari to Tirhuta
-const devanagariToTirhuta = {
+export const devanagariToTirhuta = {
   // Vowels (Swar)
   'अ': '𑒁', 'आ': '𑒂', 'इ': '𑒃', 'ई': '𑒄',
   'उ': '𑒅', 'ऊ': '𑒆', 'ऋ': '𑒇', 'ॠ': '𑒈',
@@ -44,17 +44,18 @@ const devanagariToTirhuta = {
 };
 
 // Reverse mapping for Tirhuta to Devanagari
-const tirhutaToDevanagari = {};
+export const tirhutaToDevanagari = {};
 for (const [dev, tir] of Object.entries(devanagariToTirhuta)) {
   tirhutaToDevanagari[tir] = dev;
 }
 
-// Add support for common conjuncts (optional)
-const conjuncts = {
+// Add support for common conjuncts
+export const conjuncts = {
   'क्‍ष': '𑒏𑓀𑒭', // ksh
   'त्र': '𑒞𑓀𑒩', // tra
   'ज्ञ': '𑒖𑓀𑒘', // gya
   'श्र': '𑒬𑓀𑒩', // shra
 };
 
-module.exports = { devanagariToTirhuta, tirhutaToDevanagari, conjuncts };
+// Default export for backward compatibility
+export default { devanagariToTirhuta, tirhutaToDevanagari, conjuncts };
